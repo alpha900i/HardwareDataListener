@@ -18,29 +18,11 @@ import com.alpha900i.samsungproject.R;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener {
-    private SensorManager sensorManager;
-    private final float[] accelerometerReading = new float[3];
-    private final float[] magnetometerReading = new float[3];
-
-    private final float[] rotationMatrix = new float[9];
-    private final float[] orientationAngles = new float[3];
-
-    private boolean gotMagneticRead;
-    private boolean gotAccelerometerRead;
-
-    TextView mainText;
-
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-
-
-        mainText = findViewById(R.id.textView);
-        formText();
     }
 
     private void formText() {
