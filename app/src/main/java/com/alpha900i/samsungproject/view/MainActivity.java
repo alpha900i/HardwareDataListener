@@ -1,6 +1,4 @@
-package com.alpha900i.samsungproject;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.alpha900i.samsungproject.view;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -12,10 +10,11 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.BatteryManager;
 import android.os.Bundle;
-import android.telephony.CellInfoGsm;
-import android.telephony.CellSignalStrengthGsm;
-import android.telephony.TelephonyManager;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.alpha900i.samsungproject.R;
 
 import java.util.Locale;
 
