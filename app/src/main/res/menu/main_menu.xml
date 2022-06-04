@@ -5,5 +5,7 @@
         android:title="@string/start_service" />
     <item
         android:id="@+id/stop_service_item"
-        android:title="@string/stop_service" />
+        android:title="@string/stop_service"
+        android:visible="false"
+        />
 </menu>
