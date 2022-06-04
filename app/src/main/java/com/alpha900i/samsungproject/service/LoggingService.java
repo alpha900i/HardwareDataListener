@@ -63,8 +63,9 @@ public class LoggingService extends Service {
                         0.0f, 0.0f, 0.0f
                 );
                 AppDatabase.getInstance(getBaseContext()).logDao().insertLog(logEntry);
+                int logCount = AppDatabase.getInstance(getBaseContext()).logDao().getLogCount();
 
-                Log.d(TAG, String.format(Locale.US, "Counted to %d", counter));
+                Log.d(TAG, String.format(Locale.US, "Counted to %d; %d records", counter, logCount));
                 counter++;
                 try{
                     sleep(5000);

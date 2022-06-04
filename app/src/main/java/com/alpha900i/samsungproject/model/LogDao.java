@@ -17,4 +17,10 @@ public abstract class LogDao {
 
     @Query("SELECT * FROM log")
     public abstract LiveData<List<LogEntry>> getAllLogsLive();
+
+    @Query("SELECT COUNT(*) FROM log")
+    public abstract int getLogCount();
+
+    @Query("DELETE FROM log")
+    public abstract void deleteAll();
 }

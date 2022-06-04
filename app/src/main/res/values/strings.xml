@@ -2,4 +2,9 @@
     <string name="app_name">SamsungProject</string>
     <string name="start_service">Start Service</string>
     <string name="stop_service">Stop Service</string>
+    <string name="clear_data">Clear data</string>
+    <string name="clear_data_confirmation_text">Do you want to clear all data?</string>
+    <string name="clear_data_confirmation_title">Confirmation</string>
+    <string name="clear_data_confirmation_yes">Yes</string>
+    <string name="clear_data_confirmation_no">No</string>
 </resources>
