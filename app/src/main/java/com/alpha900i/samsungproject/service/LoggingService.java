@@ -31,7 +31,9 @@ public class LoggingService extends Service {
 
     public void onDestroy() {
         super.onDestroy();
-        task.stop();
+        if (task!=null) {
+            task.stop();
+        }
     }
 
     public IBinder onBind(Intent intent) {
