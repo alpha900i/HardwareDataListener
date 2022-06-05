@@ -3,6 +3,11 @@ package com.alpha900i.samsungproject.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+
 @Entity(tableName = "log")
 public class LogEntry {
     //general info
@@ -46,5 +51,68 @@ public class LogEntry {
         this.angleX = angleX;
         this.angleY = angleY;
         this.angleZ = angleZ;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public int getBatteryLevel() {
+        return batteryLevel;
+    }
+
+    public boolean isCharging() {
+        return isCharging;
+    }
+
+    public boolean isAcCharge() {
+        return acCharge;
+    }
+
+    public boolean isUsbCharge() {
+        return usbCharge;
+    }
+
+    public long getTotalRAM() {
+        return totalRAM;
+    }
+
+    public long getAvailRAM() {
+        return availRAM;
+    }
+
+    public long getUsedRAM() {
+        return usedRAM;
+    }
+
+    public float getAngleX() {
+        return angleX;
+    }
+
+    public float getAngleY() {
+        return angleY;
+    }
+
+    public float getAngleZ() {
+        return angleZ;
+    }
+
+    public String getPrintableTimestamp() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ssz", Locale.US);
+        format.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return format.format(new Date(getTimestamp()));
+    }
+
+    public String getShortDescription() {
+        return String.format(Locale.US, "%s: battery is %d (charging is %b)",
+                getNote(), getBatteryLevel(), isCharging());
     }
 }

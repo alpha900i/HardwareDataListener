@@ -15,7 +15,7 @@ public abstract class LogDao {
     @Query("SELECT * FROM log")
     public abstract List<LogEntry> getAllLogs();
 
-    @Query("SELECT * FROM log")
+    @Query("SELECT * FROM log ORDER BY timestamp DESC")
     public abstract LiveData<List<LogEntry>> getAllLogsLive();
 
     @Query("SELECT COUNT(*) FROM log")
