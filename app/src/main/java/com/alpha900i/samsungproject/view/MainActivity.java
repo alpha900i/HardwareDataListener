@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.alpha900i.samsungproject.R;
 import com.alpha900i.samsungproject.model.AppDatabase;
@@ -15,11 +16,18 @@ import com.alpha900i.samsungproject.service.LoggingService;
 
 public class MainActivity extends AppCompatActivity {
     MenuItem startServiceMenuItem, stopServiceMenuItem;
+    MasterListFragment infoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        infoFragment = MasterListFragment.newInstance();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.place_for_main_fragment, infoFragment)
+                .commit();
     }
 
     @Override
