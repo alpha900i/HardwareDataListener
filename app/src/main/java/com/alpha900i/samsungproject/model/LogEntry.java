@@ -28,16 +28,16 @@ public class LogEntry {
     long usedRAM;
 
     //orientation block
-    float angleX;
-    float angleY;
-    float angleZ;
+    double angleX;
+    double angleY;
+    double angleZ;
 
     public LogEntry() { }
 
     public LogEntry(long id, long timestamp, String note,
                     int batteryLevel, boolean isCharging, boolean acCharge, boolean usbCharge,
                     long totalRAM, long availRAM, long usedRAM,
-                    float angleX, float angleY, float angleZ) {
+                    double angleX, double angleY, double angleZ) {
         this.id = id;
         this.timestamp = timestamp;
         this.note = note;
@@ -93,15 +93,15 @@ public class LogEntry {
         return usedRAM;
     }
 
-    public float getAngleX() {
+    public double getAngleX() {
         return angleX;
     }
 
-    public float getAngleY() {
+    public double getAngleY() {
         return angleY;
     }
 
-    public float getAngleZ() {
+    public double getAngleZ() {
         return angleZ;
     }
 
