@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.alpha900i.samsungproject.data_readers.BatteryReader;
+import com.alpha900i.samsungproject.data_readers.RAMReader;
 import com.alpha900i.samsungproject.model.AppDatabase;
 import com.alpha900i.samsungproject.model.LogEntry;
 
@@ -57,6 +58,8 @@ public class LoggingService extends Service {
                 Calendar calendar = Calendar.getInstance();
                 BatteryReader batteryReader = new BatteryReader();
                 batteryReader.formBatteryData(getBaseContext());
+                RAMReader ramReader = new RAMReader();
+                ramReader.formRAMData(getBaseContext());
 
                 LogEntry logEntry = new LogEntry(
                         0, calendar.getTimeInMillis(),
@@ -67,7 +70,10 @@ public class LoggingService extends Service {
                         batteryReader.isAcCharging(),
                         batteryReader.isUsbCharging(),
 
-                        0, 0, 0,
+                        ramReader.getTotalRAM(),
+                        ramReader.getAvailableRAM(),
+                        ramReader.getUsedRAM(),
+
                         0.0f, 0.0f, 0.0f
                 );
                 AppDatabase.getInstance(getBaseContext()).logDao().insertLog(logEntry);
