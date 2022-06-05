@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.alpha900i.samsungproject.data_readers.BatteryReader;
 import com.alpha900i.samsungproject.model.AppDatabase;
 import com.alpha900i.samsungproject.model.LogEntry;
 
@@ -54,11 +55,18 @@ public class LoggingService extends Service {
             int counter = 0;
             while(serviceIsActive){
                 Calendar calendar = Calendar.getInstance();
+                BatteryReader batteryReader = new BatteryReader();
+                batteryReader.formBatteryData(getBaseContext());
 
                 LogEntry logEntry = new LogEntry(
                         0, calendar.getTimeInMillis(),
                         String.format(Locale.US, "Note %d", counter),
-                        0, false, false, false,
+
+                        batteryReader.getBatteryLevel(),
+                        batteryReader.isCharging(),
+                        batteryReader.isAcCharging(),
+                        batteryReader.isUsbCharging(),
+
                         0, 0, 0,
                         0.0f, 0.0f, 0.0f
                 );
