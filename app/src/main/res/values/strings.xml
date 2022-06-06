@@ -26,4 +26,6 @@
     <string name="memory_placeholder">%d KB</string>
     <string name="field_value_yes">Yes</string>
     <string name="field_value_no">No</string>
+    <string name="details_title">Details</string>
+    <string name="log_title">Log</string>
 </resources>

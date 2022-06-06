@@ -24,6 +24,8 @@ public class DetailsActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        setTitle(getString(R.string.details_title));
+
         Intent incomingIntent = getIntent();
         if(incomingIntent!=null) {
             logEntryId = incomingIntent.getLongExtra(LOG_ENTRY_ID_KEY, 0);
