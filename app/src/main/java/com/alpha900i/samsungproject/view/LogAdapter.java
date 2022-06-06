@@ -17,9 +17,11 @@ import java.util.List;
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
     private List<LogEntry> list;
     private Context context;
+    private OnItemClickListener listener;
 
-    LogAdapter(Context context) {
+    LogAdapter(Context context, OnItemClickListener listener) {
         this.context = context;
+        this.listener = listener;
     }
 
     public void initialize(List<LogEntry> feeds) {
@@ -65,6 +67,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
         ViewHolder(View view) {
             super(view);
             mView = view;
+            mView.setOnClickListener(v -> listener.onItemClicked(id));
             title = view.findViewById(R.id.timestamp_text);
             shortDescription = view.findViewById(R.id.short_description_text);
         }

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".view.DetailsActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4"/>
+
+        <TextView
+            android:id="@+id/note_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_title"/>
+
+        <TextView
+            android:id="@+id/timestamp_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/note_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_timestamp_title"/>
+
+        <TextView
+            android:id="@+id/battery_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/timestamp_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_battery_title"/>
+
+        <TextView
+            android:id="@+id/battery_level_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/battery_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_battery_level_title"/>
+
+
+        <TextView
+            android:id="@+id/battery_charging_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/battery_level_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_battery_charging_title"/>
+
+
+        <TextView
+            android:id="@+id/battery_usb_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/battery_charging_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_battery_usb_charging_title"/>
+
+        <TextView
+            android:id="@+id/battery_ac_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/battery_usb_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_battery_ac_charging_title"/>
+
+        <TextView
+            android:id="@+id/ram_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/battery_ac_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_ram_title"/>
+
+        <TextView
+            android:id="@+id/total_ram_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/ram_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_total_ram_title"/>
+        <TextView
+            android:id="@+id/available_ram_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/total_ram_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_available_ram_title"/>
+        <TextView
+            android:id="@+id/used_ram_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/available_ram_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_used_ram_title"/>
+
+        <TextView
+            android:id="@+id/position_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/used_ram_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_position_title"/>
+
+        <TextView
+            android:id="@+id/x_angle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/position_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_x_angle_title"/>
+        <TextView
+            android:id="@+id/y_angle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/x_angle_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_y_angle_title"/>
+        <TextView
+            android:id="@+id/z_angle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@id/y_angle_title"
+            app:layout_constraintRight_toRightOf="@id/vertical_guideline"
+            android:text="@string/details_note_z_angle_title"/>
+
+
+        <TextView
+            android:id="@+id/note_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/note_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text = "Note 123"/>
+
+        <TextView
+            android:id="@+id/timestamp_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/timestamp_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="25/04/2022 10:30:45"/>
+
+
+        <TextView
+            android:id="@+id/battery_level_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/battery_level_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="50%"/>
+
+
+        <TextView
+            android:id="@+id/battery_charging_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/battery_charging_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="Yes"/>
+
+
+        <TextView
+            android:id="@+id/battery_usb_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/battery_usb_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="Yes"/>
+
+        <TextView
+            android:id="@+id/battery_ac_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/battery_ac_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="Yes"/>
+
+        <TextView
+            android:id="@+id/total_ram_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/total_ram_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="640Kb"/>
+
+        <TextView
+            android:id="@+id/available_ram_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/available_ram_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="640Kb"/>
+        <TextView
+            android:id="@+id/used_ram_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/used_ram_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="640Kb"/>
+
+        <TextView
+            android:id="@+id/x_angle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/x_angle_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="0"/>
+        <TextView
+            android:id="@+id/y_angle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/y_angle_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="0"/>
+        <TextView
+            android:id="@+id/z_angle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="@id/z_angle_title"
+            app:layout_constraintLeft_toLeftOf="@id/vertical_guideline"
+            tools:text="0"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

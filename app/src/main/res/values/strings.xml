@@ -7,4 +7,23 @@
     <string name="clear_data_confirmation_title">Confirmation</string>
     <string name="clear_data_confirmation_yes">Yes</string>
     <string name="clear_data_confirmation_no">No</string>
+    <string name="details_note_title">Note</string>
+    <string name="details_note_timestamp_title">Timestamp</string>
+    <string name="details_note_battery_title">Battery</string>
+    <string name="details_note_battery_level_title">Battery Level</string>
+    <string name="details_note_battery_charging_title">Battery Charging?</string>
+    <string name="details_note_battery_usb_charging_title">Battery USB charging?</string>
+    <string name="details_note_battery_ac_charging_title">Battery AC charging?</string>
+    <string name="details_note_ram_title">RAM</string>
+    <string name="details_note_total_ram_title">Total RAM</string>
+    <string name="details_note_available_ram_title">Available RAM</string>
+    <string name="details_note_used_ram_title">Used RAM</string>
+    <string name="details_note_position_title">Position</string>
+    <string name="details_note_x_angle_title">X Angle</string>
+    <string name="details_note_y_angle_title">Y Angle</string>
+    <string name="details_note_z_angle_title">Z Angle</string>
+    <string name="battery_level_placeholder">%d%%</string>
+    <string name="memory_placeholder">%d KB</string>
+    <string name="field_value_yes">Yes</string>
+    <string name="field_value_no">No</string>
 </resources>

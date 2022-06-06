@@ -1,5 +1,6 @@
 package com.alpha900i.samsungproject.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,12 +40,18 @@ public class MasterListFragment extends Fragment {
 
         RecyclerView masterList = view.findViewById(R.id.master_list_recycler);
         masterList.setLayoutManager(new LinearLayoutManager(requireContext()));
-        adapter = new LogAdapter(requireContext());
+        adapter = new LogAdapter(requireContext(), this::openDetails);
         masterList.setAdapter(adapter);
 
         setupViewModel();
 
         return view;
+    }
+
+    private void openDetails(long id) {
+        Intent intent = new Intent(getContext(), DetailsActivity.class);
+        intent.putExtra(DetailsActivity.LOG_ENTRY_ID_KEY, id);
+        startActivity(intent);
     }
 
     private void setupViewModel() {
