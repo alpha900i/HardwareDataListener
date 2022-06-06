@@ -2,6 +2,7 @@ package com.alpha900i.samsungproject.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -19,6 +20,10 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_fragment);
 
+        if(getSupportActionBar()!=null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         Intent incomingIntent = getIntent();
         if(incomingIntent!=null) {
             logEntryId = incomingIntent.getLongExtra(LOG_ENTRY_ID_KEY, 0);
@@ -31,5 +36,15 @@ public class DetailsActivity extends AppCompatActivity {
         fragmentManager.beginTransaction()
                 .replace(R.id.place_for_main_fragment, infoFragment)
                 .commit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
