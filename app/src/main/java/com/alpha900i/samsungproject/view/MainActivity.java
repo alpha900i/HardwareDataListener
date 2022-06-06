@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,20 +17,35 @@ import com.alpha900i.samsungproject.service.LoggingService;
 
 public class MainActivity extends AppCompatActivity {
     MenuItem startServiceMenuItem, stopServiceMenuItem;
-    MasterListFragment infoFragment;
+    MasterListFragment masterFragment;
+    DetailsFragment detailsFragment;
+    View detailsPlaceholder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_with_fragment);
+        setContentView(R.layout.main_activity);
 
         setTitle(getString(R.string.log_title));
 
-        infoFragment = MasterListFragment.newInstance();
+        detailsPlaceholder = findViewById(R.id.details_fragment);
+
+        masterFragment = MasterListFragment.newInstance();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.place_for_main_fragment, infoFragment)
-                .commit();
+
+        if (detailsPlaceholder!=null) {
+            detailsFragment = DetailsFragment.newInstance();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.master_fragment, masterFragment)
+                    .replace(R.id.details_fragment, detailsFragment)
+                    .commit();
+        } else {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.master_fragment, masterFragment)
+                    .commit();
+        }
+
+
     }
 
     @Override
@@ -84,5 +100,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void clearData() {
         AppDatabase.getInstance(getApplicationContext()).logDao().deleteAll();
+    }
+
+    public void openDetails(long id) {
+        if (detailsPlaceholder!=null) {
+            detailsFragment.setLogEntryId(id);
+        } else {
+            Intent intent = new Intent(getBaseContext(), DetailsActivity.class);
+            intent.putExtra(DetailsActivity.LOG_ENTRY_ID_KEY, id);
+            startActivity(intent);
+        }
     }
 }

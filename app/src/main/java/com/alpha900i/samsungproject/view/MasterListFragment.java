@@ -1,6 +1,5 @@
 package com.alpha900i.samsungproject.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,9 +48,9 @@ public class MasterListFragment extends Fragment {
     }
 
     private void openDetails(long id) {
-        Intent intent = new Intent(getContext(), DetailsActivity.class);
-        intent.putExtra(DetailsActivity.LOG_ENTRY_ID_KEY, id);
-        startActivity(intent);
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity)getActivity()).openDetails(id);
+        }
     }
 
     private void setupViewModel() {
