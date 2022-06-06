@@ -18,6 +18,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
     private List<LogEntry> list;
     private Context context;
     private OnItemClickListener listener;
+    private long selectedId;
 
     LogAdapter(Context context, OnItemClickListener listener) {
         this.context = context;
@@ -46,6 +47,11 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
         holder.id = log.getId();
         holder.title.setText(log.getPrintableTimestamp());
         holder.shortDescription.setText(log.getShortDescription());
+        if (log.getId()==selectedId) {
+            holder.mView.setBackgroundColor(context.getResources().getColor(R.color.yellow));
+        } else {
+            holder.mView.setBackgroundColor(context.getResources().getColor(R.color.white));
+        }
     }
 
     @Override
@@ -67,7 +73,11 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
         ViewHolder(View view) {
             super(view);
             mView = view;
-            mView.setOnClickListener(v -> listener.onItemClicked(id));
+            mView.setOnClickListener(v -> {
+                selectedId = id;
+                notifyDataSetChanged();
+                listener.onItemClicked(id);
+            });
             title = view.findViewById(R.id.timestamp_text);
             shortDescription = view.findViewById(R.id.short_description_text);
         }
