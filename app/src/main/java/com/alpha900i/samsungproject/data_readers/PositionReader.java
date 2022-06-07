@@ -12,6 +12,7 @@ public class PositionReader {
     private final float[] magnetometerReading = new float[3];
     private final float[] orientationAngles = new float[3];
 
+    //getting data from sensor
     public void processEvent(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER ) {
             System.arraycopy(event.values, 0, accelerometerReading,
@@ -21,15 +22,19 @@ public class PositionReader {
                     0, magnetometerReading.length);
         }
     }
+
+    //actually forming result from sensor data
     public void formPositionData() {
         final float[] rotationMatrix = new float[9];
         SensorManager.getRotationMatrix(rotationMatrix, null,
                 accelerometerReading, magnetometerReading);
-
-        // Express the updated rotation matrix as three orientation angles.
         final float[] orientationAngles = new float[3];
         SensorManager.getOrientation(rotationMatrix, orientationAngles);
     }
+
+    //////////////////////////////////////
+    //getters
+    //////////////////////////////////////
     public double getXAngle() {
         return Math.toDegrees(orientationAngles[0]);
     }

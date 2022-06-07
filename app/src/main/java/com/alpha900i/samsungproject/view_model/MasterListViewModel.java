@@ -11,6 +11,8 @@ import com.alpha900i.samsungproject.model.LogEntry;
 
 import java.util.List;
 
+//master fragment viewModel. gives access to live version of list logEntries
+//livedata is needed, because list of logEntries is being filled by service
 public class MasterListViewModel extends AndroidViewModel {
     private LiveData<List<LogEntry>> list;
 

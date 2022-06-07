@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alpha900i.samsungproject.R;
 import com.alpha900i.samsungproject.view_model.MasterListViewModel;
 
+//master fragment. Shows list of log entries
 public class MasterListFragment extends Fragment {
     LogAdapter adapter;
 

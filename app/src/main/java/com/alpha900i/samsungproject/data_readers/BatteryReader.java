@@ -19,7 +19,6 @@ public class BatteryReader {
         BatteryManager bm = (BatteryManager) context.getSystemService(BATTERY_SERVICE);
         batteryLevel = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
 
-
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatus = context.registerReceiver(null, ifilter);
 

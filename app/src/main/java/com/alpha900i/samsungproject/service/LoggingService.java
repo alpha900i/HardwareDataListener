@@ -22,6 +22,7 @@ import com.alpha900i.samsungproject.model.LogEntry;
 import java.util.Calendar;
 import java.util.Locale;
 
+//service. Exists in background, saves current snapshot every 5000 seconds
 public class LoggingService extends Service implements SensorEventListener {
     private final String TAG = "LoggingService";
     MyTask task;

@@ -15,6 +15,7 @@ import com.alpha900i.samsungproject.R;
 import com.alpha900i.samsungproject.model.AppDatabase;
 import com.alpha900i.samsungproject.service.LoggingService;
 
+//Main Activity. Only master list in portrait mode, master-details in landscape
 public class MainActivity extends AppCompatActivity {
     MenuItem startServiceMenuItem, stopServiceMenuItem;
     MasterListFragment masterFragment;

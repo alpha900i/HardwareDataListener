@@ -11,6 +11,9 @@ import androidx.lifecycle.Transformations;
 import com.alpha900i.samsungproject.model.AppDatabase;
 import com.alpha900i.samsungproject.model.LogEntry;
 
+//details fragment viewModel. gives access to live version of logEntry being shown
+//only reason to have viewModel and livedata here is "master-details" pattern
+//livedata makes it easier to switch between logEntries
 public class DetailsViewModel extends AndroidViewModel {
     MutableLiveData<Long> logEntryId;
     private LiveData<LogEntry> logEntry;

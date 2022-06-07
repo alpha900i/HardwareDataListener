@@ -15,6 +15,7 @@ import com.alpha900i.samsungproject.view_model.DetailsViewModel;
 
 import java.util.Locale;
 
+//details fragment. Shows extended info on log entry
 public class DetailsFragment extends Fragment {
     long logEntryId = 0;
 

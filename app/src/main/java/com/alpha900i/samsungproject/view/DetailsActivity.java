@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.alpha900i.samsungproject.R;
 
+//details activity. Wraps DetailsFragment in portrait mode
 public class DetailsActivity extends AppCompatActivity {
     public static final String LOG_ENTRY_ID_KEY = "log_entry_id";
     DetailsFragment infoFragment;
@@ -32,7 +33,7 @@ public class DetailsActivity extends AppCompatActivity {
         }
 
         infoFragment = DetailsFragment.newInstance();
-        //yes, we could use newInstance. I am just planning for Master-Details as well
+        //yes, we could use newInstance. This would make master-details little harder, though
         infoFragment.setLogEntryId(logEntryId);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()

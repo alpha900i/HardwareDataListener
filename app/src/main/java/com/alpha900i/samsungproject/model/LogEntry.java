@@ -8,6 +8,8 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
+//main data structure - log entry about hardware data
+//Room library Entity
 @Entity(tableName = "log")
 public class LogEntry {
     //general info

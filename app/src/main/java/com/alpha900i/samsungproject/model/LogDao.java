@@ -7,6 +7,7 @@ import androidx.room.Query;
 
 import java.util.List;
 
+//Room library DAO. Simple methods for different SQL requests
 @Dao
 public abstract class LogDao {
     @Insert

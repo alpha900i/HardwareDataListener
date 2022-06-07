@@ -14,6 +14,7 @@ import com.alpha900i.samsungproject.model.LogEntry;
 
 import java.util.List;
 
+//basic data-to-view adapter.
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
     private List<LogEntry> list;
     private Context context;
