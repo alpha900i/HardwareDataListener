@@ -28,4 +28,6 @@
     <string name="field_value_no">No</string>
     <string name="details_title">Details</string>
     <string name="log_title">Log</string>
+    <string name="debug_log_count_record">Counted to %d; %d records</string>
+    <string name="note_placeholder">Note %d</string>
 </resources>

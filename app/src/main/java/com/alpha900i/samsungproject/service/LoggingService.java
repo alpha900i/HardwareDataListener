@@ -12,6 +12,7 @@ import android.hardware.SensorManager;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.alpha900i.samsungproject.R;
 import com.alpha900i.samsungproject.data_readers.BatteryReader;
 import com.alpha900i.samsungproject.data_readers.PositionReader;
 import com.alpha900i.samsungproject.data_readers.RAMReader;
@@ -115,7 +116,7 @@ public class LoggingService extends Service implements SensorEventListener {
 
                 LogEntry logEntry = new LogEntry(
                         0, calendar.getTimeInMillis(),
-                        String.format(Locale.US, "Note %d", counter),
+                        String.format(Locale.US, getString(R.string.note_placeholder), counter),
 
                         batteryReader.getBatteryLevel(),
                         batteryReader.isCharging(),
@@ -133,7 +134,7 @@ public class LoggingService extends Service implements SensorEventListener {
                 AppDatabase.getInstance(getBaseContext()).logDao().insertLog(logEntry);
                 int logCount = AppDatabase.getInstance(getBaseContext()).logDao().getLogCount();
 
-                Log.d(TAG, String.format(Locale.US, "Counted to %d; %d records", counter, logCount));
+                Log.d(TAG, String.format(Locale.US, getString(R.string.debug_log_count_record), counter, logCount));
                 counter++;
                 try{
                     sleep(DELAY_MSEC);
