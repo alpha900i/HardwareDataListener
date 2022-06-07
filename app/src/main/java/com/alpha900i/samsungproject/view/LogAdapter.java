@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alpha900i.samsungproject.R;
@@ -49,9 +50,9 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.ViewHolder> {
         holder.title.setText(log.getPrintableTimestamp());
         holder.shortDescription.setText(log.getShortDescription());
         if (log.getId()==selectedId) {
-            holder.mView.setBackgroundColor(context.getResources().getColor(R.color.yellow));
+            holder.mView.setBackgroundColor(ContextCompat.getColor(context, R.color.yellow));
         } else {
-            holder.mView.setBackgroundColor(context.getResources().getColor(R.color.white));
+            holder.mView.setBackgroundColor(ContextCompat.getColor(context, R.color.white));
         }
     }
 
