@@ -48,6 +48,7 @@ public class LoggingService extends Service implements SensorEventListener {
 
     public void onDestroy() {
         super.onDestroy();
+        unregisterSensorListeners();
         if (task!=null) {
             task.stop();
         }
