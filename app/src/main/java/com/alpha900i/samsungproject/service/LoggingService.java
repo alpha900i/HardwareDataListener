@@ -25,6 +25,8 @@ public class LoggingService extends Service implements SensorEventListener {
     private final String TAG = "LoggingService";
     MyTask task;
 
+    private final long DELAY_MSEC = 5000;
+
     private SensorManager sensorManager;
     private BatteryReader batteryReader;
     private PositionReader positionReader;
@@ -134,7 +136,7 @@ public class LoggingService extends Service implements SensorEventListener {
                 Log.d(TAG, String.format(Locale.US, "Counted to %d; %d records", counter, logCount));
                 counter++;
                 try{
-                    sleep(5000);
+                    sleep(DELAY_MSEC);
                 } catch (InterruptedException e){
                     e.printStackTrace();
                     break;
