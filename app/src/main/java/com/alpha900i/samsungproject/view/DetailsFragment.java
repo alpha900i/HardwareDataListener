@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -19,6 +20,7 @@ import java.util.Locale;
 public class DetailsFragment extends Fragment {
     long logEntryId = 0;
 
+    ConstraintLayout mainLayout;
     TextView noteText, timestampText;
     TextView batteryLevelText, batteryChargingText, batteryUSBChargingText, batteryACChargingText;
     TextView totalRAMText, availableRAMText, usedRAMText;
@@ -47,12 +49,17 @@ public class DetailsFragment extends Fragment {
         setHasOptionsMenu(true);
 
         findViews(view);
+
+        mainLayout.setVisibility(View.GONE);
+
         setupViewModel();
 
         return view;
     }
 
     private void findViews(View parent) {
+        mainLayout = parent.findViewById(R.id.main_layout);
+
         noteText = parent.findViewById(R.id.note_text);
         timestampText = parent.findViewById(R.id.timestamp_text);
 
@@ -76,6 +83,7 @@ public class DetailsFragment extends Fragment {
             if (logEntry == null) {
                 return;
             }
+            mainLayout.setVisibility(View.VISIBLE);
             noteText.setText(logEntry.getNote());
             timestampText.setText(logEntry.getPrintableTimestamp());
 
