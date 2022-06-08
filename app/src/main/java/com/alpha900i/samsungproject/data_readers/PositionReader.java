@@ -28,7 +28,6 @@ public class PositionReader {
         final float[] rotationMatrix = new float[9];
         SensorManager.getRotationMatrix(rotationMatrix, null,
                 accelerometerReading, magnetometerReading);
-        final float[] orientationAngles = new float[3];
         SensorManager.getOrientation(rotationMatrix, orientationAngles);
     }
 
