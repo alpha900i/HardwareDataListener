@@ -27,6 +27,8 @@ public class LoggingService extends Service implements SensorEventListener {
     private final String TAG = "LoggingService";
     MyTask task;
 
+    private static boolean serviceIsActive = false;
+
     private final long DELAY_MSEC = 5000;
 
     private SensorManager sensorManager;
@@ -46,6 +48,7 @@ public class LoggingService extends Service implements SensorEventListener {
     public int onStartCommand(Intent intent, int flags, int startId) {
         task = new MyTask();
         registerSensorListeners();
+        serviceIsActive = true;
         startWork();
         return super.onStartCommand(intent, flags, startId);
     }
@@ -53,9 +56,7 @@ public class LoggingService extends Service implements SensorEventListener {
     public void onDestroy() {
         super.onDestroy();
         unregisterSensorListeners();
-        if (task!=null) {
-            task.stop();
-        }
+        serviceIsActive = false;
     }
 
     public IBinder onBind(Intent intent) {
@@ -65,6 +66,10 @@ public class LoggingService extends Service implements SensorEventListener {
     void startWork(){
         Thread thread = new Thread(task,"MainThread");
         thread.start();
+    }
+
+    public static boolean isServiceActive() {
+        return serviceIsActive;
     }
 
     ////////////////////////////////////////////
@@ -100,7 +105,7 @@ public class LoggingService extends Service implements SensorEventListener {
     }
 
     private class MyTask implements Runnable{
-        private boolean serviceIsActive;
+
 
         MyTask() { }
 
@@ -144,9 +149,6 @@ public class LoggingService extends Service implements SensorEventListener {
                     break;
                 }
             }
-        }
-        void stop(){
-            serviceIsActive = false;
         }
     }
 }

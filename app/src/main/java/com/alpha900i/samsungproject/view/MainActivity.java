@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         startServiceMenuItem = menu.findItem(R.id.start_service_item);
         stopServiceMenuItem = menu.findItem(R.id.stop_service_item);
+        setMenuItemsState(LoggingService.isServiceActive());
         return true;
     }
 
@@ -75,14 +76,16 @@ public class MainActivity extends AppCompatActivity {
     public void startService(){
         Intent intent = new Intent(this, LoggingService.class);
         startService(intent);
-        startServiceMenuItem.setVisible(false);
-        stopServiceMenuItem.setVisible(true);
+        setMenuItemsState(true);
     }
     public void stopService(){
         Intent intent = new Intent(this, LoggingService.class);
         stopService(intent);
-        startServiceMenuItem.setVisible(true);
-        stopServiceMenuItem.setVisible(false);
+        setMenuItemsState(false);
+    }
+    private void setMenuItemsState(boolean isServiceActive) {
+        startServiceMenuItem.setVisible(!isServiceActive);
+        stopServiceMenuItem.setVisible(isServiceActive);
     }
 
     public void clearDataWithConfirmation(){
