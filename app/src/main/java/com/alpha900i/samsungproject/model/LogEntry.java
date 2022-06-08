@@ -1,6 +1,7 @@
 package com.alpha900i.samsungproject.model;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.text.SimpleDateFormat;
@@ -34,6 +35,7 @@ public class LogEntry {
     double angleY;
     double angleZ;
 
+    @Ignore
     public LogEntry() { }
 
     public LogEntry(long id, long timestamp, String note,
