@@ -73,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void startService(){
+    private void startService(){
         Intent intent = new Intent(this, LoggingService.class);
         startService(intent);
         setMenuItemsState(true);
     }
-    public void stopService(){
+    private void stopService(){
         Intent intent = new Intent(this, LoggingService.class);
         stopService(intent);
         setMenuItemsState(false);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         stopServiceMenuItem.setVisible(isServiceActive);
     }
 
-    public void clearDataWithConfirmation(){
+    private void clearDataWithConfirmation(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         DialogInterface.OnClickListener dialogListener = (dialog, which) -> {
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.clear_data_confirmation_no, dialogListener).show();
     }
 
-    public void clearData() {
+    private void clearData() {
         AppDatabase.getInstance(getApplicationContext()).logDao().deleteAll();
     }
 
