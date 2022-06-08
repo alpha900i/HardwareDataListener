@@ -31,6 +31,7 @@ public class LogEntry {
     long usedRAM;
 
     //orientation block
+    boolean positionDataIsGood;
     double angleX;
     double angleY;
     double angleZ;
@@ -41,7 +42,7 @@ public class LogEntry {
     public LogEntry(long id, long timestamp, String note,
                     int batteryLevel, boolean isCharging, boolean acCharge, boolean usbCharge,
                     long totalRAM, long availRAM, long usedRAM,
-                    double angleX, double angleY, double angleZ) {
+                    boolean positionDataIsGood, double angleX, double angleY, double angleZ) {
         this.id = id;
         this.timestamp = timestamp;
         this.note = note;
@@ -52,6 +53,7 @@ public class LogEntry {
         this.totalRAM = totalRAM;
         this.availRAM = availRAM;
         this.usedRAM = usedRAM;
+        this.positionDataIsGood = positionDataIsGood;
         this.angleX = angleX;
         this.angleY = angleY;
         this.angleZ = angleZ;
@@ -95,6 +97,10 @@ public class LogEntry {
 
     public long getUsedRAM() {
         return usedRAM;
+    }
+
+    public boolean isPositionDataGood() {
+        return positionDataIsGood;
     }
 
     public double getAngleX() {

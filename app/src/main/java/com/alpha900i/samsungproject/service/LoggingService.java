@@ -133,6 +133,7 @@ public class LoggingService extends Service implements SensorEventListener {
                         ramReader.getAvailableRAM(),
                         ramReader.getUsedRAM(),
 
+                        positionReader.bothSensorsReacted(),
                         positionReader.getXAngle(),
                         positionReader.getYAngle(),
                         positionReader.getZAngle()

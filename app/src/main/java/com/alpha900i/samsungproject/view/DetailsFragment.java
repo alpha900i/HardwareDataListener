@@ -24,6 +24,7 @@ public class DetailsFragment extends Fragment {
     TextView noteText, timestampText;
     TextView batteryLevelText, batteryChargingText, batteryUSBChargingText, batteryACChargingText;
     TextView totalRAMText, availableRAMText, usedRAMText;
+    TextView positionTitle, xAngleTitle, yAngleTitle, zAngleTitle;
     TextView xAngleText, yAngleText, zAngleText;
 
     DetailsViewModel viewModel;
@@ -72,6 +73,11 @@ public class DetailsFragment extends Fragment {
         availableRAMText = parent.findViewById(R.id.available_ram_text);
         usedRAMText = parent.findViewById(R.id.used_ram_text);
 
+        positionTitle = parent.findViewById(R.id.position_title);
+        xAngleTitle = parent.findViewById(R.id.x_angle_title);
+        yAngleTitle = parent.findViewById(R.id.y_angle_title);
+        zAngleTitle = parent.findViewById(R.id.z_angle_title);
+
         xAngleText = parent.findViewById(R.id.x_angle_text);
         yAngleText = parent.findViewById(R.id.y_angle_text);
         zAngleText = parent.findViewById(R.id.z_angle_text);
@@ -99,6 +105,19 @@ public class DetailsFragment extends Fragment {
             xAngleText.setText(String.format(Locale.US, "%f", logEntry.getAngleX()));
             yAngleText.setText(String.format(Locale.US, "%f", logEntry.getAngleY()));
             zAngleText.setText(String.format(Locale.US, "%f", logEntry.getAngleZ()));
+
+            int positionDataVisibility = View.VISIBLE;
+            if (!logEntry.isPositionDataGood()) {
+                positionDataVisibility = View.GONE;
+            }
+
+            positionTitle.setVisibility(positionDataVisibility);
+            xAngleTitle.setVisibility(positionDataVisibility);
+            yAngleTitle.setVisibility(positionDataVisibility);
+            zAngleTitle.setVisibility(positionDataVisibility);
+            xAngleText.setVisibility(positionDataVisibility);
+            yAngleText.setVisibility(positionDataVisibility);
+            zAngleText.setVisibility(positionDataVisibility);
         });
     }
     public void setLogEntryId(long logEntryId) {
